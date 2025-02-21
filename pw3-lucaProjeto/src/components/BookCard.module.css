@@ -1,0 +1,28 @@
+.bookCard
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 5px;
+    width: max-content;
+    padding: 5px;
+    background-color: #dedede;
+    border: 1px, solid, #ccc;
+    font-family: Helvetica;
+}
+
+.title
+{
+    font-size: 12px;
+}
+
+.autor
+{
+    font-size: 10px;
+}
+
+img
+{
+    width: 80px;
+    border-radius: 5px;
+}
