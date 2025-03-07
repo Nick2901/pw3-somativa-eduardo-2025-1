@@ -1,10 +1,8 @@
-.buttonContainer
-{
+.buttonContainer{
     width: 100%;
 }
 
-button
-{
+button{
     width: 100%;
     font-family: Helvetica;
     border: 1px solid #FFF;
