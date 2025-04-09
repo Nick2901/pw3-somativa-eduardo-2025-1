@@ -18,32 +18,57 @@ const CreateBook = ()=>{
     }
 
     function handlerChangeCategory(event){
-        setBook({...book, cod_categoria : event.target.options[event.target.selectedIndex].text})
+        setBook({...book, cod_categoria : event.target.options[event.target.selectedIndex].value})
     }
 
     function submit(event){
         event.preventDefault();
         console.log(book);
+        insertBook(book)
     }
 
-useEffect(() => {
-    fetch('http://127.0.0.1:5000/listagemCateorias',
-        {
-            method: 'GET',
-            headers: {
-                'Content-Type':'application/json',
-                'Access-Control-Allow-Origin':'*',
-                'Access-Control-Allow-Headers':'*'
+    useEffect(() => {
+        fetch('http://127.0.0.1:5000/listagemCateorias',
+            {
+                method: 'GET',
+                headers: {
+                    'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Headers':'*'
+                }
             }
-        }
-    ).then((resp) =>
-        resp.json()
-    ).then((categorias) => {
-        console.log('TESTE: ' + categorias.data);
-    }).catch((error) => {
-        console.log('ERRO: ' + error);
-    })
-}, []);
+        ).then((resp) =>
+            resp.json()
+        ).then((categorias) => {
+            console.log('TESTE: ' + categorias.data);
+            setCategories(categorias.data)
+            }
+        ).catch((error) => {
+                console.log('ERRO: ' + error);
+            }
+        )
+    }, []);
+
+    function insertBook(book) {
+        fetch('http://127.0.0.1:5000/inserirLivro', {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Headers':'*'
+                },
+                body : JSON.stringify(book)
+            }
+        ).then((resp) =>
+            resp.json()
+        ).then((respJSON) => {
+                console.log('RESPOSTA: ' + respJSON);
+            }
+        ).catch((error) => {
+            console.log('ERRO: ' + error);
+        })
+    }
 
     return(
         <section className = {style.create_book_container}>
@@ -72,15 +97,16 @@ useEffect(() => {
                     placeholder = 'Digite a descrição do livro'/>
                 <Select
                     handlerChange = {handlerChangeCategory}
+                    options = {categories}
                     name = 'cod_categoria'
                     id = 'slc_categoria'
                     text = 'Categoria do livro'/>
                 <Button
-                    label = 'Cadastrar Livro'
+                    label = 'CADASTRAR LIVRO '
                 />
             </form>
         </section>
     )
 }
 
-export default CreateBook 
+export default CreateBook

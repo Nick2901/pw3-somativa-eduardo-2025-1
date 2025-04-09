@@ -1,15 +1,20 @@
 import style from './Select.module.css'
 
-function Select ({name, text, id, handlerChange}) {
+function Select ({name, text, id, handlerChange, options}) {
     return (
         <div className = {style.form_control}>
             <label htmlFor = {name}>{text}</label>
             <select name = {name} id = {id} onChange = {handlerChange}>
                 <option value=''>Selecione uma categoria</option>
-                <option value=''>Ficção científica</option>
-                <option value=''>Fantasia heróica</option>
-                <option value=''>Suspense</option>
-                <option value=''>Terror</option>
+                {
+                    options.map(
+                        (option) => (
+                            <option value={option.cod_categoria} key={option.cod_categoria}>
+                                {option.nome_categoria}
+                            </option>
+                        )
+                    )
+                }
             </select>
         </div>
     )
