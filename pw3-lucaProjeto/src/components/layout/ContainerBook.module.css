@@ -1,0 +1,9 @@
+.container_book{
+    background-color: #FFF;
+    width: 80%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}

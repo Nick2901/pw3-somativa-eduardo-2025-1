@@ -2,12 +2,12 @@ import Button from './Button'
 
 import style from './BookCard.module.css'
 
-const BookCard = ({titulo, autor, imagem})=>{
+const BookCard = ({cod_livro, nome_livro, autor_livro, imagem})=>{
     return(
         
         <div className={style.bookCard}>
-            <h3 className={style.titulo}>{titulo}</h3>
-            <p className={style.autor}>{autor}</p>
+            <h3 className={style.nome_livro}>{nome_livro}</h3>
+            <p className={style.autor_livro}>{autor_livro}</p>
             <img src={imagem} alt="Capa: As Cavernas de Aço" />
             <Button label='DETALHE' />
         </div>

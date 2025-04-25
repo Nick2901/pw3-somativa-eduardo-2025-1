@@ -1,5 +1,6 @@
 import React from "react";
 import {useState, useEffect} from "react";
+import { useNavigate } from "react-router-dom";
 import style from './CreateBook.module.css'
 import Input from "../form/Input";
 import Select from "../form/Select";
@@ -10,6 +11,8 @@ const CreateBook = ()=>{
     const [book, setBook] = useState({});
 
     const [categories, setCategories] = useState([]);
+
+    const navigate = useNavigate();
 
 
     function handlerChangeBook(event){
@@ -64,6 +67,7 @@ const CreateBook = ()=>{
             resp.json()
         ).then((respJSON) => {
                 console.log('RESPOSTA: ' + respJSON);
+                navigate('/listBook')
             }
         ).catch((error) => {
             console.log('ERRO: ' + error);
