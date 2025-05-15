@@ -38,11 +38,13 @@ const ListBook = ()=>{
             <ContainerBook>
                 {
                     books.map((book) => (
-                    <BookCard
-                        nome_livro = {book.nome_livro}
-                        autor_livro = {book.autor_livro}
-                        imagem = {cavernas}
-                        key = {book.cod_livro}/>
+                        <BookCard
+                            cod_livro = {book.cod_livro}
+                            nome_livro = {book.nome_livro}
+                            autor_livro = {book.autor_livro}
+                            imagem = {cavernas}
+                            key = {book.cod_livro}
+                        />
                     )) 
                 }
             </ContainerBook>

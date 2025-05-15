@@ -1,0 +1,61 @@
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    padding: 10px;
+}
+
+.info{
+    display: grid;
+    align-items: start;
+    justify-items: start;
+    align-self: self-start;
+}
+
+.container_img{
+    display: grid;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    /* background-color: #999; */
+}
+
+.img_book_detail{
+    display: grid;
+    align-items: end;
+    justify-items: end;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.titulo{
+    font-size: 40px;
+    padding: 10px;
+}
+
+.autor{
+    font-size: 30px;
+    color: #ccc;
+    padding: 10px;
+}
+
+.descricao{
+    font-size: 20px;
+    text-align: justify ;
+    padding: 10px;
+}
+
+.btn{
+    border: 1px solid #FFF;
+    border-radius: 5px;
+    background: linear-gradient(180deg, rgba(17,179,53,0.9940709560191264) 0%, rgba(19,215,2,1) 100%);
+    color: #FFF;
+    padding: 10px;
+}
+
+.container_buttons{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:5px;
+    color: #999;
+}
