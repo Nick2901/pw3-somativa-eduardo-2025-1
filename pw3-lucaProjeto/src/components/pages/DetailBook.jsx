@@ -1,9 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import { useParams } from 'react-router-dom'
-
 import style from './DetailBook.module.css'
 import Button from '../Button'
-
 import cavernas from '../../assets/cavernas_aco.jpg'
 
 const DetailBook = () => {
